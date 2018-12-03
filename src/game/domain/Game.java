@@ -28,11 +28,40 @@ public class Game {
         this.setNumberOfDice(nod);
         this.setMaxScore(maxScore);
         this.initDice();
+        this.resetTurns();
     }
 
     /* Main Functions */
     public void run() {
-
+        List<Integer> rollValues;
+        List<Player> winners;
+        int score;
+        while (!this.checkGameWon(this.getPlayerList())) {
+            for (Player player : this.getPlayerList()) {
+                System.out.println("Turn: " + this.getTurns());
+                System.out.println("Player: " + player.getName() + " [" + player.getScore() + "]");
+                rollValues = this.roll();
+                score = scoreRoll(rollValues);
+                System.out.println("Rolled: " + rollValues);
+                System.out.println("This Scored: " + score);
+                player.addScore(score);
+                this.nextTurn();
+            }
+        }
+        String result = "";
+        winners = this.getWinners(this.getPlayerList());
+        if (winners.size() > 1) {
+            for (Player winner : winners) {
+                result += winner.getName() + " and ";
+            }
+            result = result.substring(0, result.length() - 3);
+            result += "drew.";
+        } else if (winners.size() == 1) {
+            result = "Congratulations to " + winners.get(0).getName() + " on winning!";
+        } else {
+            result = "Error: No one won?";
+        }
+        System.out.println(result);
     }
     public void reset() {
         this.resetTurns();
@@ -42,15 +71,16 @@ public class Game {
 
     /* Game Functions */
     // Dice Rolls
-    public void roll() {
+    public List<Integer> roll() {
         List<Integer> rollValues = new ArrayList<>();
         for (Dice dice : this.getDiceList()) {
             dice.randomiseValue();
             rollValues.add(dice.getValue());
         }
         int score = this.scoreRoll(rollValues);
-        System.out.println(rollValues);
-        System.out.println(score);
+//        System.out.println(rollValues);
+//        System.out.println(score);
+        return rollValues;
     }
     // Dice Scoring
     public int scoreRoll(List<Integer> rollValues) {
@@ -134,7 +164,7 @@ public class Game {
 
     /* Turn Functions */
     public void resetTurns() {
-        this.turns = 0;
+        this.turns = 1;
     }
     public void nextTurn() {
         this.turns += 1;
@@ -168,7 +198,7 @@ public class Game {
     public void setGameWon() { this.won = true; }
     public void setGameWon(boolean w) { this.won = w; }
     public boolean getGameWon() { return this.won; }
-    public List<Player> checkWinners(List<Player> playerList) {
+    public List<Player> getWinners(List<Player> playerList) {
         List<Player> winners = new ArrayList<>();
         for (Player player : playerList) {
             if (passedMaxScore(player.getScore())) winners.add(player);
@@ -185,7 +215,7 @@ public class Game {
         return winners;
     }
     public boolean checkGameWon(List<Player> playerList) {
-        if (this.checkWinners(playerList).size() > 0) {
+        if (this.getWinners(playerList).size() > 0) {
             this.setGameWon(true);
         } else {
             this.setGameWon(false);
