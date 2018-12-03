@@ -16,9 +16,9 @@
 
 ### Scoring
 
-- [ ] If it generates a pair, then the player score is the sum of that pair. For example if it generates 3 & 3 & 1, the player scores will be the sum of 3 & 3 which is 6.
-- [ ] If all the 3 dice rolls have the same values, then the score will be 18.
-- [ ] Otherwise, for any other combination, they just get 1 score.
+- [x] If it generates a pair, then the player score is the sum of that pair. For example if it generates 3 & 3 & 1, the player scores will be the sum of 3 & 3 which is 6.
+- [x] If all the 3 dice rolls have the same values, then the score will be 18.
+- [x] Otherwise, for any other combination, they just get 1 score.
 - [ ] If both players reaches a score which is more than the pre-defined maximum, the game’s result is a Draw
 - [ ] A player is considered a winner if he/she accumulates a score which is more than the predefined maximum.
 
@@ -28,9 +28,9 @@
 
 Your program design should include at least the following classes:
 
-- [ ] Player
-- [ ] Game
-- [ ] Dice
+- [x] Player
+- [x] Game
+- [x] Dice
 
 ## Part 2 (20 Marks)
 
