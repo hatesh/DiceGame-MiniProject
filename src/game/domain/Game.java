@@ -11,11 +11,16 @@ public class Game {
     private int numberOfDice;
     private int maxScore;
     private int turns;
+    private boolean won;
 
     /* Constructors */
     // Default
     public Game() {
         this(2, 3, 30);
+    }
+    // Custom Max Score
+    public Game(int maxScore) {
+        this(2, 3, maxScore);
     }
     // Custom
     public Game(int nop, int nod, int maxScore) {
@@ -23,6 +28,16 @@ public class Game {
         this.setNumberOfDice(nod);
         this.setMaxScore(maxScore);
         this.initDice();
+    }
+
+    /* Main Functions */
+    public void run() {
+
+    }
+    public void reset() {
+        this.resetTurns();
+        this.resetWon();
+        this.resetScores(this.getPlayerList());
     }
 
     /* Game Functions */
@@ -131,7 +146,7 @@ public class Game {
         this.turns = turns;
     }
 
-    /* Max Score Functions */
+    /* Score Functions */
     public void setMaxScore(int maxScore) {
         this.maxScore = maxScore;
     }
@@ -140,5 +155,50 @@ public class Game {
     }
     public boolean passedMaxScore(int score) {
         return score > this.getMaxScore();
+    }
+    public List<Player> resetScores(List<Player> playerList) {
+        for (Player player : playerList) {
+            player.setScore(0);
+        }
+        return playerList;
+    }
+
+    /* Win Functions */
+    public void resetWon() { this.won = false; }
+    public void setGameWon() { this.won = true; }
+    public void setGameWon(boolean w) { this.won = w; }
+    public boolean getGameWon() { return this.won; }
+    public List<Player> checkWinners(List<Player> playerList) {
+        List<Player> winners = new ArrayList<>();
+        for (Player player : playerList) {
+            if (passedMaxScore(player.getScore())) winners.add(player);
+        }
+        if (winners.size() > 1) {
+            System.out.println("It's a draw");
+            this.setGameWon();
+        } else if (winners.size() == 1) {
+            System.out.println("We have a winner");
+            this.setGameWon();
+        } else {
+            System.out.println("No winner yet");
+        }
+        return winners;
+    }
+    public boolean checkGameWon(List<Player> playerList) {
+        if (this.checkWinners(playerList).size() > 0) {
+            this.setGameWon(true);
+        } else {
+            this.setGameWon(false);
+        }
+        return this.getGameWon();
+    }
+    public Player getPlayerInLead(List<Player> playerList) {
+        Player winning = new Player();
+        for(Player player : playerList) {
+            if (player.getScore() > winning.getScore()) {
+                winning = player;
+            }
+        }
+        return winning;
     }
 }
