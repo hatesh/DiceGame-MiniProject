@@ -30,6 +30,8 @@ public class welcomeController {
         System.out.println("Player 1: " + txt_Player1Name.getText());
         System.out.println("Player 2: " + txt_Player2Name.getText());
         System.out.println("Max Score: " + txt_MaxScore.getText());
+
+
     }
 
 }

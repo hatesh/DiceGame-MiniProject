@@ -36,6 +36,7 @@ public class Game {
         List<Integer> rollValues;
         List<Player> winners;
         int score;
+        System.out.println("Game Start");
         while (!this.checkGameWon(this.getPlayerList())) {
             for (Player player : this.getPlayerList()) {
                 System.out.println("Turn: " + this.getTurns());

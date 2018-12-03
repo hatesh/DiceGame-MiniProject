@@ -9,13 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-//    @Override
-////    public void start(Stage primaryStage) throws Exception{
-////        Parent root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
-////        primaryStage.setTitle("Hatesh's Dice Game");
-////        primaryStage.setScene(new Scene(root, 600, 600));
-////        primaryStage.show();
-////    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
