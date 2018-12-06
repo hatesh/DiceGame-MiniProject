@@ -41,7 +41,7 @@
       <RowConstraints />
     </rowConstraints>
     <children>
-        <Label fx:id="lbl_WinMessage" prefHeight="80.0" prefWidth="455.0" text="Congrats" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+        <Label fx:id="lbl_WinMessage" prefHeight="153.0" prefWidth="455.0" text="Congrats" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
             <font>
                 <Font size="27.0" />
             </font>

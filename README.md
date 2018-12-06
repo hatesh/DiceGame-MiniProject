@@ -10,17 +10,17 @@
 
 ### Dice Roll
 
-- [ ] Your application simulates the dice roll operation for both players.
-- [ ] Computer generates 3 random numbers between 1-6 (simulating a 6 sided dice), for each player.
-- [ ] The players’ scores are updated every time dice roll button clicked for each player.
+- [x] Your application simulates the dice roll operation for both players.
+- [x] Computer generates 3 random numbers between 1-6 (simulating a 6 sided dice), for each player.
+- [x] The players’ scores are updated every time dice roll button clicked for each player.
 
 ### Scoring
 
 - [x] If it generates a pair, then the player score is the sum of that pair. For example if it generates 3 & 3 & 1, the player scores will be the sum of 3 & 3 which is 6.
 - [x] If all the 3 dice rolls have the same values, then the score will be 18.
 - [x] Otherwise, for any other combination, they just get 1 score.
-- [ ] If both players reaches a score which is more than the pre-defined maximum, the game’s result is a Draw
-- [ ] A player is considered a winner if he/she accumulates a score which is more than the predefined maximum.
+- [x] If both players reaches a score which is more than the pre-defined maximum, the game’s result is a Draw
+- [x] A player is considered a winner if he/she accumulates a score which is more than the predefined maximum.
 
 - [ ] At every state of the game, both players’ score must be displayed together with the name of the player who is leading the game.
 
@@ -36,7 +36,7 @@ Your program design should include at least the following classes:
 
 ### Basic Graphical User Interface
 
-- [ ] Using JavaFX, develop a basic GUI to simulate the above listed functionalities.
+- [x] Using JavaFX, develop a basic GUI to simulate the above listed functionalities.
 
 ## Part 3 (40 Marks)
 
@@ -46,7 +46,7 @@ Your program design should include at least the following classes:
 - [ ] Your application should have the proper user instruction to explain the game and its rules; such as a short clip or animation
 - [ ] Your application needs to have at least 3 different layout managers.
 - [ ] You are encouraged to propose and implement new features different from the above listed items including extra visual features, animation. You can gather ideas by looking at similar applications. You are expected to consider the usability principles and produce an application that takes good care of them.
-- [ ] Your source code should be well organised and documented. 
+- [x] Your source code should be well organised and documented. 
 
 ## Part 4 (20 Marks)
 
