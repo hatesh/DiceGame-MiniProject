@@ -34,11 +34,19 @@ public class GameController {
         this.updateScores();
         this.updateDiceLabels();
         this.setNameLabels();
+        this.checkWon();
+    }
+
+    @FXML void checkWon() {
+        if (SceneNavigator.game.checkThisGameWon()) {
+            btn_rollDice.setDisable(true);
+            SceneNavigator.loadScene(SceneNavigator.winFX);
+        }
     }
 
     @FXML void updateScores() {
-        lbl_Player1Score.setText("Score: " + Integer.toString(SceneNavigator.game.getPlayer(1).getScore()));
-        lbl_Player2Score.setText("Score: " + Integer.toString(SceneNavigator.game.getPlayer(2).getScore()));
+        lbl_Player1Score.setText("Score: " + SceneNavigator.game.getPlayer(1).getScore());
+        lbl_Player2Score.setText("Score: " + SceneNavigator.game.getPlayer(2).getScore());
     }
 
     @FXML void updateDiceLabels() {

@@ -153,6 +153,7 @@ public class Game {
             p.resetScore();
         }
     }
+    public void clearPlayerList() { this.playerList.clear(); }
     // Number of Players
     public void setNumberOfPlayers(int nop) {
         this.numberOfPlayers = nop;
@@ -210,7 +211,7 @@ public class Game {
         return this.maxScore;
     }
     public boolean passedMaxScore(int score) {
-        return score > this.getMaxScore();
+        return score >= this.getMaxScore();
     }
     /* Win Functions */
     public void resetWon() { this.won = false; }
@@ -241,6 +242,8 @@ public class Game {
         }
         return this.getGameWon();
     }
+    public List<Player> getThisGameWinners() { return this.getWinners(this.getPlayerList()); }
+    public boolean checkThisGameWon() { return this.checkGameWon(this.getPlayerList()); }
     public Player getPlayerInLead(List<Player> playerList) {
         Player winning = new Player();
         for(Player player : playerList) {
