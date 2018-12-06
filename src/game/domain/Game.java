@@ -54,6 +54,7 @@ public class Game {
         if (turn % 2 == 0) return getPlayerList().get(1);
         return getPlayerList().get(0);
     }
+    public Player getThisTurnPlayer() { return this.getTurnPlayer(this.getTurns()); }
     public void run() {
         List<Player> winners;
         System.out.println("Game Start");

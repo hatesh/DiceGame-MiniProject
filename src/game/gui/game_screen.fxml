@@ -48,6 +48,8 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
@@ -59,7 +61,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Player1Score" layoutX="133.0" layoutY="20.0" text="Score" />
+                  <Label fx:id="lbl_Player1Score" layoutX="17.0" layoutY="50.0" text="Score" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="248.0">
@@ -69,7 +71,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Player2Score" layoutX="127.0" layoutY="20.0" text="Score" textAlignment="RIGHT" />
+                  <Label fx:id="lbl_Player2Score" layoutX="17.0" layoutY="50.0" text="Score" textAlignment="RIGHT" />
                </children></AnchorPane>
          </children>
       </HBox>
@@ -80,6 +82,16 @@
             <Label fx:id="lbl_Dice2" layoutX="10.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
             <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
          </children></HBox>
-      <Button fx:id="btn_rollDice" mnemonicParsing="false" onAction="#roll" text="Roll" GridPane.rowIndex="27" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="20">
+         <children>
+            <AnchorPane prefHeight="90.0" prefWidth="454.0">
+               <children>
+                  <Label fx:id="lbl_WhoseTurn" layoutX="209.0" layoutY="14.0" text="First Up" />
+                  <Button fx:id="btn_rollDice" layoutX="188.0" layoutY="44.0" mnemonicParsing="false" onAction="#roll" prefWidth="78.0" text="Roll" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <Label fx:id="lbl_TextOutput" prefHeight="21.0" prefWidth="453.0" GridPane.rowIndex="24" />
    </children>
 </GridPane>

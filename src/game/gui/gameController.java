@@ -24,6 +24,9 @@ public class GameController {
     @FXML private Label lbl_Dice2;
     @FXML private Label lbl_Dice3;
 
+    @FXML private Label lbl_WhoseTurn;
+    @FXML private Label lbl_TextOutput;
+
     @FXML private Button btn_rollDice;
 
     @FXML void startGame(ActionEvent event) throws IOException { SceneNavigator.game.run(); }
@@ -32,6 +35,8 @@ public class GameController {
         SceneNavigator.game.playerRoll(SceneNavigator.game.getTurnPlayer(SceneNavigator.game.getTurns()));
         lbl_TurnCounter.setText("Turn: " + SceneNavigator.game.getTurns());
         this.updateScores();
+        this.updateTurn();
+        this.updateTextOutput();
         this.updateDiceLabels();
         this.setNameLabels();
         this.checkWon();
@@ -42,6 +47,24 @@ public class GameController {
             btn_rollDice.setDisable(true);
             SceneNavigator.loadScene(SceneNavigator.winFX);
         }
+    }
+
+    @FXML void updateTextOutput() {
+        String temp  = "";
+        temp += SceneNavigator.game.getThisTurnPlayer().getName();
+        temp += " rolled ";
+        temp += SceneNavigator.game.getRollValues().toString();
+        temp += " which scores them ";
+        temp += SceneNavigator.game.getRollScore();
+        temp += " points!";
+        lbl_TextOutput.setText(temp);
+    }
+
+    @FXML void updateTurn() {
+        String temp  = "It is ";
+        temp += SceneNavigator.game.getThisTurnPlayer().getName();
+        temp += "'s Turn to Roll!";
+        lbl_WhoseTurn.setText(temp);
     }
 
     @FXML void updateScores() {
