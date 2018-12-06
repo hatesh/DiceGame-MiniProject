@@ -1,23 +1,26 @@
 package game.gui;
 
+import game.domain.Game;
+
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 
 public class SceneNavigator {
 
-    public static final String menu = "main_menu.fxml";
-    public static final String welcome = "welcome_screen.fxml";
-    public static final String game = "game_screen.fxml";
+    public static final String menuFX = "main_menu.fxml";
+    public static final String welcomeFX = "welcome_screen.fxml";
+    public static final String gameFX = "game_screen.fxml";
 
-    private static Controller controller;
+    private static MainController main;
+    public static Game game = new Game();
 
-    public static void setMainController(Controller controller) {
-        SceneNavigator.controller = controller;
+    public static void setMainController(MainController controller) {
+        SceneNavigator.main = controller;
     }
 
     public static void loadScene(String fxml) {
         try {
-            controller.setScene(FXMLLoader.load(SceneNavigator.class.getResource(fxml)));
+            main.setScene(FXMLLoader.load(SceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }

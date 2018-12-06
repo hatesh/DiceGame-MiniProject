@@ -19,15 +19,14 @@ public class Main extends Application {
 
     private Pane loadMainScene() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        Pane mainPane = loader.load(getClass().getResourceAsStream(SceneNavigator.menu));
-        Controller mainController = loader.getController();
+        Pane mainPane = loader.load(getClass().getResourceAsStream(SceneNavigator.menuFX));
+        MainController mainController = loader.getController();
         SceneNavigator.setMainController(mainController);
         return mainPane;
     }
 
     private Scene createScene(Pane mainPane) {
-        Scene scene = new Scene(mainPane);
-        return scene;
+        return new Scene(mainPane);
     }
 
     public static void main(String[] args) {

@@ -7,11 +7,14 @@ public class Game {
     /* Class Properties */
     private List<Player> playerList = new ArrayList<>();
     private List<Dice> diceList = new ArrayList<>();
+    private List<Integer> rollValues;
     private int numberOfPlayers;
     private int numberOfDice;
+    private int rollScore;
     private int maxScore;
-    private int turns;
     private boolean won;
+    private int turns;
+
 
     /* Constructors */
     // Default
@@ -32,21 +35,31 @@ public class Game {
     }
 
     /* Main Functions */
+    public void start() {
+        this.reset();
+        System.out.println("Game Start");
+    }
+    public void playerRoll(Player player) {
+        System.out.println("Turn: " + this.getTurns());
+        System.out.println("Player: " + player.getName() + " [" + player.getScore() + "]");
+        this.setRollValues(this.roll());
+        this.setRollScore(scoreRoll(this.getRollValues()));
+        System.out.println("Rolled: " + this.getRollValues());
+        System.out.println("This Scored: " + this.getRollScore());
+        player.addScore(this.getRollScore());
+        this.nextTurn();
+    }
+    public Player getTurnPlayer(int turn) {
+        // Assuming 2 players for now
+        if (turn % 2 == 0) return getPlayerList().get(1);
+        return getPlayerList().get(0);
+    }
     public void run() {
-        List<Integer> rollValues;
         List<Player> winners;
-        int score;
         System.out.println("Game Start");
         while (!this.checkGameWon(this.getPlayerList())) {
             for (Player player : this.getPlayerList()) {
-                System.out.println("Turn: " + this.getTurns());
-                System.out.println("Player: " + player.getName() + " [" + player.getScore() + "]");
-                rollValues = this.roll();
-                score = scoreRoll(rollValues);
-                System.out.println("Rolled: " + rollValues);
-                System.out.println("This Scored: " + score);
-                player.addScore(score);
-                this.nextTurn();
+                this.playerRoll(player);
             }
         }
         String result = "";
@@ -67,7 +80,7 @@ public class Game {
     public void reset() {
         this.resetTurns();
         this.resetWon();
-        this.resetScores(this.getPlayerList());
+        this.resetPlayerScores();
     }
 
     /* Game Functions */
@@ -115,8 +128,8 @@ public class Game {
         }
         return pair;
     }
-
-
+    public int getRollScore() { return this.rollScore; }
+    public void setRollScore(int rollScore) { this.rollScore = rollScore; }
     /* Player Functions */
     // Player List
     public void addPlayer(Player player) {
@@ -128,6 +141,17 @@ public class Game {
     }
     public List<Player> getPlayerList() {
         return this.playerList;
+    }
+    public Player getPlayer(int number) {
+        for (Player p : getPlayerList()) {
+            if (p.getNumber() == number) return p;
+        }
+        return new Player();
+    }
+    public void resetPlayerScores() {
+        for (Player p : this.getPlayerList()) {
+            p.resetScore();
+        }
     }
     // Number of Players
     public void setNumberOfPlayers(int nop) {
@@ -151,7 +175,6 @@ public class Game {
             this.newDice();
         }
     }
-
     public List<Dice> getDiceList() {
         return this.diceList;
     }
@@ -162,6 +185,8 @@ public class Game {
     public int getNumberOfDice() {
         return this.numberOfDice;
     }
+    public void setRollValues(List<Integer> rollValues) { this.rollValues = rollValues; }
+    public List<Integer> getRollValues() { return this.rollValues; }
 
     /* Turn Functions */
     public void resetTurns() {
@@ -187,13 +212,6 @@ public class Game {
     public boolean passedMaxScore(int score) {
         return score > this.getMaxScore();
     }
-    public List<Player> resetScores(List<Player> playerList) {
-        for (Player player : playerList) {
-            player.setScore(0);
-        }
-        return playerList;
-    }
-
     /* Win Functions */
     public void resetWon() { this.won = false; }
     public void setGameWon() { this.won = true; }
