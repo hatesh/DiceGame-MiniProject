@@ -86,7 +86,7 @@
          <children>
             <AnchorPane prefHeight="90.0" prefWidth="454.0">
                <children>
-                  <Label fx:id="lbl_WhoseTurn" layoutX="209.0" layoutY="14.0" text="First Up" />
+                  <Label fx:id="lbl_WhoseTurn" layoutX="59.0" layoutY="14.0" prefHeight="21.0" prefWidth="318.0" text="First Up" textAlignment="CENTER" />
                   <Button fx:id="btn_rollDice" layoutX="188.0" layoutY="44.0" mnemonicParsing="false" onAction="#roll" prefWidth="78.0" text="Roll" />
                </children>
             </AnchorPane>

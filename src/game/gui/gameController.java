@@ -2,17 +2,13 @@ package game.gui;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.List;
 
 public class GameController {
-
-    @FXML private GridPane pane_GameScreen;
 
     @FXML private Label lbl_TurnCounter;
     @FXML private Label lbl_Player1Name;
@@ -29,7 +25,7 @@ public class GameController {
 
     @FXML private Button btn_rollDice;
 
-    @FXML void startGame(ActionEvent event) throws IOException { SceneNavigator.game.run(); }
+//    @FXML void startGame(ActionEvent event) throws IOException { SceneNavigator.game.run(); }
 
     @FXML void roll(ActionEvent event) throws IOException {
         SceneNavigator.game.playerRoll(SceneNavigator.game.getTurnPlayer(SceneNavigator.game.getTurns()));
@@ -51,7 +47,7 @@ public class GameController {
 
     @FXML void updateTextOutput() {
         String temp  = "";
-        temp += SceneNavigator.game.getThisTurnPlayer().getName();
+        temp += SceneNavigator.game.getTurnPlayer(SceneNavigator.game.getTurns() - 1).getName();
         temp += " rolled ";
         temp += SceneNavigator.game.getRollValues().toString();
         temp += " which scores them ";
@@ -86,9 +82,8 @@ public class GameController {
 
     @FXML public void initialize() {
         System.out.println("Set Names");
-        System.out.println(SceneNavigator.game.getPlayer(1).getName());
-        System.out.println(SceneNavigator.game.getPlayer(2).getName());
         this.setNameLabels();
+        this.updateTurn();
     }
 
 }
