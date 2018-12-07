@@ -22,7 +22,7 @@
 - [x] If both players reaches a score which is more than the pre-defined maximum, the game’s result is a Draw
 - [x] A player is considered a winner if he/she accumulates a score which is more than the predefined maximum.
 
-- [ ] At every state of the game, both players’ score must be displayed together with the name of the player who is leading the game.
+- [x] At every state of the game, both players’ score must be displayed together with the name of the player who is leading the game.
 
 ### Program Design
 
@@ -44,7 +44,7 @@ Your program design should include at least the following classes:
 
 - [ ] Your application should display the state of each player (the scores and highlights if they are heading) every time the dice is rolled.
 - [ ] Your application should have the proper user instruction to explain the game and its rules; such as a short clip or animation
-- [ ] Your application needs to have at least 3 different layout managers.
+- [x] Your application needs to have at least 3 different layout managers.
 - [ ] You are encouraged to propose and implement new features different from the above listed items including extra visual features, animation. You can gather ideas by looking at similar applications. You are expected to consider the usability principles and produce an application that takes good care of them.
 - [x] Your source code should be well organised and documented. 
 

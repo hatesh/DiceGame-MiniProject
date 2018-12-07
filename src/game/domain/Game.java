@@ -15,7 +15,6 @@ public class Game {
     private boolean won;
     private int turns;
 
-
     /* Constructors */
     // Default
     public Game() {
@@ -35,10 +34,6 @@ public class Game {
     }
 
     /* Main Functions */
-    public void start() {
-        this.reset();
-        System.out.println("Game Start");
-    }
     public void playerRoll(Player player) {
         System.out.println("Turn: " + this.getTurns());
         System.out.println("Player: " + player.getName() + " [" + player.getScore() + "]");
@@ -49,12 +44,6 @@ public class Game {
         player.addScore(this.getRollScore());
         this.nextTurn();
     }
-    public Player getTurnPlayer(int turn) {
-        // Assuming 2 players for now
-        if (turn % 2 == 0) return getPlayerList().get(1);
-        return getPlayerList().get(0);
-    }
-    public Player getThisTurnPlayer() { return this.getTurnPlayer(this.getTurns()); }
     public void run() {
         List<Player> winners;
         System.out.println("Game Start");
@@ -97,6 +86,12 @@ public class Game {
 //        System.out.println(score);
         return rollValues;
     }
+    public Player getTurnPlayer(int turn) {
+        // Assuming 2 players for now
+        if (turn % 2 == 0) return getPlayerList().get(1);
+        return getPlayerList().get(0);
+    }
+    public Player getThisTurnPlayer() { return this.getTurnPlayer(this.getTurns()); }
     // Dice Scoring
     public int scoreRoll(List<Integer> rollValues) {
         Integer score;

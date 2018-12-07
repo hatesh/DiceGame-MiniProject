@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,6 +16,8 @@ public class GameController {
     @FXML private Label lbl_Player1Score;
     @FXML private Label lbl_Player2Name;
     @FXML private Label lbl_Player2Score;
+    @FXML private ProgressBar pgr_Player1Score;
+    @FXML private ProgressBar pgr_Player2Score;
 
     @FXML private Label lbl_Dice1;
     @FXML private Label lbl_Dice2;
@@ -66,6 +69,7 @@ public class GameController {
     @FXML void updateScores() {
         lbl_Player1Score.setText("Score: " + SceneNavigator.game.getPlayer(1).getScore());
         lbl_Player2Score.setText("Score: " + SceneNavigator.game.getPlayer(2).getScore());
+
     }
 
     @FXML void updateDiceLabels() {

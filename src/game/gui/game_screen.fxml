@@ -2,11 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane fx:id="pane_GameScreen" alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.GameController">
@@ -52,36 +54,33 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+      <Label fx:id="lbl_TurnCounter" prefHeight="21.0" prefWidth="453.0" text="Turn: " textAlignment="CENTER" GridPane.rowIndex="9" />
+      <HBox prefHeight="92.0" prefWidth="453.0" GridPane.rowIndex="5">
          <children>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="277.0">
+            <VBox prefHeight="108.0" prefWidth="214.0">
                <children>
-                  <Label fx:id="lbl_Player1Name" layoutY="15.0" text="Player 1">
+                  <Label fx:id="lbl_Player1Name" text="Player 1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Player1Score" layoutX="17.0" layoutY="50.0" text="Score" />
+                  <Label fx:id="lbl_Player1Score" text="Score" />
+                  <ProgressBar fx:id="pgr_Player1Score" prefWidth="200.0" progress="0.0" />
                </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="248.0">
+            </VBox>
+            <VBox prefHeight="84.0" prefWidth="239.0">
                <children>
-                  <Label fx:id="lbl_Player2Name" layoutY="15.0" text="Player 2" textAlignment="RIGHT">
+                  <Label fx:id="lbl_Player2Name" text="Player 2" textAlignment="RIGHT">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Player2Score" layoutX="17.0" layoutY="50.0" text="Score" textAlignment="RIGHT" />
-               </children></AnchorPane>
+                  <Label fx:id="lbl_Player2Score" text="Score" textAlignment="RIGHT" />
+                  <ProgressBar fx:id="pgr_Player2Score" prefHeight="23.0" prefWidth="232.0" progress="0.0" />
+               </children>
+            </VBox>
          </children>
       </HBox>
-      <Label fx:id="lbl_TurnCounter" prefHeight="21.0" prefWidth="453.0" text="Turn: " textAlignment="CENTER" GridPane.rowIndex="9" />
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="16">
-         <children>
-            <Label fx:id="lbl_Dice1" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-            <Label fx:id="lbl_Dice2" layoutX="10.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-            <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-         </children></HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="20">
          <children>
             <AnchorPane prefHeight="90.0" prefWidth="454.0">
@@ -92,6 +91,12 @@
             </AnchorPane>
          </children>
       </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="16">
+         <children>
+            <Label fx:id="lbl_Dice1" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
+            <Label fx:id="lbl_Dice2" layoutX="10.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
+            <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
+         </children></HBox>
       <Label fx:id="lbl_TextOutput" prefHeight="21.0" prefWidth="453.0" GridPane.rowIndex="24" />
    </children>
 </GridPane>
