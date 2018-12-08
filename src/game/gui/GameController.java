@@ -4,25 +4,33 @@ import game.graphics.DiceImage;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
 
     @FXML private Label lbl_TurnCounter;
+
     @FXML private Label lbl_Player1Name;
     @FXML private Label lbl_Player1Score;
     @FXML private Label lbl_Player2Name;
     @FXML private Label lbl_Player2Score;
     @FXML private ProgressBar pgr_Player1Score;
     @FXML private ProgressBar pgr_Player2Score;
+    @FXML private VBox vbx_Player1Info;
+    @FXML private VBox vbx_Player2Info;
 
     @FXML private Label lbl_Dice1;
     @FXML private Label lbl_Dice2;
@@ -39,6 +47,8 @@ public class GameController {
 
     @FXML private DiceImage diceImage;
 
+    private Background winning;
+
 //    @FXML void startGame(ActionEvent event) throws IOException { SceneNavigator.game.run(); }
 
     @FXML void roll(ActionEvent event) throws IOException {
@@ -48,7 +58,7 @@ public class GameController {
         this.updateTurn();
         this.updateTextOutput();
         this.updateDice();
-        this.setNameLabels();
+        this.updateWinning();
         this.checkWon();
     }
 
@@ -115,22 +125,33 @@ public class GameController {
         img_Dice3.setImage(diceImage.getDiceFaceImage(rolls.get(2)));
     }
 
+    @FXML void updateWinning() {
+        int player1Score = SceneNavigator.game.getPlayer(1).getScore();
+        int player2Score = SceneNavigator.game.getPlayer(2).getScore();
+        if (player1Score > player2Score) {
+            vbx_Player1Info.setBackground(winning);
+            vbx_Player2Info.setBackground(Background.EMPTY);
+        } else if (player2Score > player1Score) {
+            vbx_Player1Info.setBackground(Background.EMPTY);
+            vbx_Player2Info.setBackground(winning);
+        } else {
+            vbx_Player1Info.setBackground(Background.EMPTY);
+            vbx_Player2Info.setBackground(Background.EMPTY);
+        }
+    }
+
     @FXML public void setNameLabels() {
         lbl_Player1Name.setText(SceneNavigator.game.getPlayer(1).getName());
         lbl_Player2Name.setText(SceneNavigator.game.getPlayer(2).getName());
     }
 
     @FXML public void initialize() {
-        System.out.println("Set Names");
+        this.winning = new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY));
         this.diceImage = new DiceImage();
         this.setNameLabels();
         this.updateTurn();
         this.updateTurnCounter();
-//        List<Integer> displayRolls = new ArrayList<>();
-//        displayRolls.add(1);
-//        displayRolls.add(2);
-//        displayRolls.add(3);
-//        this.updateDice(displayRolls);
+        this.updateScores();
     }
 
 }
