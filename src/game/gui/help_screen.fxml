@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="pane_GameScreen" alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.HelpController">
+   <children>
+      <TabPane prefHeight="466.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
+        <tabs>
+          <Tab text="Description">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="467.0" prefWidth="492.0">
+                     <children>
+                        <TextArea fx:id="txtarea_Description" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="412.0" prefWidth="530.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Game Screen">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="418.0" fitWidth="564.0" layoutX="91.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../graphics/game-screen-help.jpg" />
+                           </image></ImageView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button mnemonicParsing="false" onAction="#loadMenu" text="Menu" GridPane.rowIndex="5">
+         <padding>
+            <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="220.0" />
+         </GridPane.margin>
+      </Button>
+      <Label GridPane.rowIndex="1" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

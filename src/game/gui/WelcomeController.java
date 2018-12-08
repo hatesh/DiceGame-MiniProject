@@ -21,11 +21,15 @@ public class WelcomeController {
     }
 
     @FXML void loadGame(ActionEvent event) throws IOException {
-        System.out.println("Player 1: " + txt_Player1Name.getText());
-        System.out.println("Player 2: " + txt_Player2Name.getText());
+        String player1Name = "Player 1";
+        String player2Name = "Player 2";
+        if (!txt_Player1Name.getText().isEmpty()) player1Name = txt_Player1Name.getText();
+        if (!txt_Player2Name.getText().isEmpty()) player2Name = txt_Player2Name.getText();
+        System.out.println("Player 1: " + player1Name);
+        System.out.println("Player 2: " + player2Name);
         System.out.println("Max Score: " + txt_MaxScore.getText());
-        SceneNavigator.game.newPlayer(txt_Player1Name.getText(), 1);
-        SceneNavigator.game.newPlayer(txt_Player2Name.getText(), 2);
+        SceneNavigator.game.newPlayer(player1Name, 1);
+        SceneNavigator.game.newPlayer(player2Name, 2);
         SceneNavigator.game.setMaxScore(Integer.parseInt(txt_MaxScore.getText()));
         System.out.println("Load Game");
         SceneNavigator.loadScene(SceneNavigator.gameFX);
