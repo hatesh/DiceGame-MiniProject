@@ -67,9 +67,14 @@ public class GameController {
     }
 
     @FXML void updateScores() {
-        lbl_Player1Score.setText("Score: " + SceneNavigator.game.getPlayer(1).getScore());
-        lbl_Player2Score.setText("Score: " + SceneNavigator.game.getPlayer(2).getScore());
-
+        int player1Score = SceneNavigator.game.getPlayer(1).getScore();
+        int player2Score = SceneNavigator.game.getPlayer(2).getScore();
+        lbl_Player1Score.setText("Score: " + player1Score);
+        lbl_Player2Score.setText("Score: " + player2Score);
+        double player1Progress = (double) player1Score / (double) SceneNavigator.game.getMaxScore();
+        double player2Progress = (double) player2Score / (double) SceneNavigator.game.getMaxScore();
+        pgr_Player1Score.setProgress(player1Progress);
+        pgr_Player2Score.setProgress(player2Progress);
     }
 
     @FXML void updateDiceLabels() {
