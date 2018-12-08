@@ -1,13 +1,17 @@
 package game.gui;
 
+import game.graphics.DiceImage;
+
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -23,6 +27,9 @@ public class GameController {
     @FXML private Label lbl_Dice1;
     @FXML private Label lbl_Dice2;
     @FXML private Label lbl_Dice3;
+    @FXML private ImageView img_Dice1;
+    @FXML private ImageView img_Dice2;
+    @FXML private ImageView img_Dice3;
 
     @FXML private Label lbl_WhoseTurn;
     @FXML private Label lbl_TextOutput;
@@ -30,15 +37,17 @@ public class GameController {
 
     @FXML private Button btn_rollDice;
 
+    @FXML private DiceImage diceImage;
+
 //    @FXML void startGame(ActionEvent event) throws IOException { SceneNavigator.game.run(); }
 
     @FXML void roll(ActionEvent event) throws IOException {
         SceneNavigator.game.playerRoll(SceneNavigator.game.getTurnPlayer(SceneNavigator.game.getTurns()));
-        lbl_TurnCounter.setText("Turn: " + SceneNavigator.game.getTurns());
+        this.updateTurnCounter();
         this.updateScores();
         this.updateTurn();
         this.updateTextOutput();
-        this.updateDiceLabels();
+        this.updateDice();
         this.setNameLabels();
         this.checkWon();
     }
@@ -62,6 +71,10 @@ public class GameController {
         txtarea_GameLog.setText(txtarea_GameLog.getText() + "\n" + temp);
     }
 
+    @FXML void updateTurnCounter() {
+        lbl_TurnCounter.setText("Turn: " + SceneNavigator.game.getTurns());
+    }
+
     @FXML void updateTurn() {
         String temp  = "It is ";
         temp += SceneNavigator.game.getThisTurnPlayer().getName();
@@ -80,11 +93,26 @@ public class GameController {
         pgr_Player2Score.setProgress(player2Progress);
     }
 
-    @FXML void updateDiceLabels() {
+    @FXML void updateDice() {
         List<Integer> rolls = SceneNavigator.game.getRollValues();
+        this.updateDice(rolls);
+    }
+
+    @FXML void updateDice(List<Integer> rolls) {
+        this.updateDiceLabels(rolls);
+        this.updateDiceImages(rolls);
+    }
+
+    @FXML void updateDiceLabels(List<Integer> rolls) {
         lbl_Dice1.setText(rolls.get(0).toString());
         lbl_Dice2.setText(rolls.get(1).toString());
         lbl_Dice3.setText(rolls.get(2).toString());
+    }
+
+    @FXML void updateDiceImages(List<Integer> rolls) {
+        img_Dice1.setImage(diceImage.getDiceFaceImage(rolls.get(0)));
+        img_Dice2.setImage(diceImage.getDiceFaceImage(rolls.get(1)));
+        img_Dice3.setImage(diceImage.getDiceFaceImage(rolls.get(2)));
     }
 
     @FXML public void setNameLabels() {
@@ -94,8 +122,15 @@ public class GameController {
 
     @FXML public void initialize() {
         System.out.println("Set Names");
+        this.diceImage = new DiceImage();
         this.setNameLabels();
         this.updateTurn();
+        this.updateTurnCounter();
+//        List<Integer> displayRolls = new ArrayList<>();
+//        displayRolls.add(1);
+//        displayRolls.add(2);
+//        displayRolls.add(3);
+//        this.updateDice(displayRolls);
     }
 
 }
