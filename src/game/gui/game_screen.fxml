@@ -15,91 +15,56 @@
 <GridPane fx:id="pane_GameScreen" alignment="center" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.GameController">
    <columnConstraints>
       <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
    </rowConstraints>
    <children>
-      <Label fx:id="lbl_TurnCounter" prefHeight="21.0" prefWidth="453.0" text="Turn: " textAlignment="CENTER" GridPane.rowIndex="9" />
-      <HBox prefHeight="92.0" prefWidth="453.0" GridPane.rowIndex="5">
+      <VBox prefHeight="575.0" prefWidth="532.0">
          <children>
-            <VBox prefHeight="108.0" prefWidth="214.0">
+            <Label fx:id="lbl_TurnCounter" prefHeight="21.0" prefWidth="453.0" text="Turn: " textAlignment="CENTER" />
+            <HBox prefHeight="92.0" prefWidth="453.0">
                <children>
-                  <Label fx:id="lbl_Player1Name" text="Player 1">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbl_Player1Score" text="Score" />
-                  <ProgressBar fx:id="pgr_Player1Score" prefWidth="200.0" progress="0.0" />
+                  <VBox prefHeight="92.0" prefWidth="260.0">
+                     <children>
+                        <Label fx:id="lbl_Player1Name" text="Player 1">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbl_Player1Score" text="Score" />
+                        <ProgressBar fx:id="pgr_Player1Score" prefWidth="200.0" progress="0.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="92.0" prefWidth="260.0">
+                     <children>
+                        <Label fx:id="lbl_Player2Name" text="Player 2" textAlignment="RIGHT">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbl_Player2Score" text="Score" textAlignment="RIGHT" />
+                        <ProgressBar fx:id="pgr_Player2Score" prefHeight="23.0" prefWidth="232.0" progress="0.0" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox prefHeight="84.0" prefWidth="239.0">
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="lbl_Player2Name" text="Player 2" textAlignment="RIGHT">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lbl_Player2Score" text="Score" textAlignment="RIGHT" />
-                  <ProgressBar fx:id="pgr_Player2Score" prefHeight="23.0" prefWidth="232.0" progress="0.0" />
+                  <Label fx:id="lbl_Dice1" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
+                  <Label fx:id="lbl_Dice2" layoutX="10.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
+                  <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
                </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="20">
-         <children>
+            </HBox>
             <AnchorPane prefHeight="90.0" prefWidth="454.0">
                <children>
                   <Label fx:id="lbl_WhoseTurn" layoutX="59.0" layoutY="14.0" prefHeight="21.0" prefWidth="318.0" text="First Up" textAlignment="CENTER" />
                   <Button fx:id="btn_rollDice" layoutX="188.0" layoutY="44.0" mnemonicParsing="false" onAction="#roll" prefWidth="78.0" text="Roll" />
                </children>
             </AnchorPane>
+            <Label fx:id="lbl_TextOutput" prefHeight="21.0" prefWidth="453.0" text="Game Start!" />
+            <TextArea fx:id="txtarea_GameLog" editable="false" prefHeight="200.0" prefWidth="200.0" text="Game Start!" wrapText="true" />
          </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="16">
-         <children>
-            <Label fx:id="lbl_Dice1" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-            <Label fx:id="lbl_Dice2" layoutX="10.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-            <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
-         </children></HBox>
-      <Label fx:id="lbl_TextOutput" prefHeight="21.0" prefWidth="453.0" GridPane.rowIndex="24" />
-      <TextArea fx:id="txtarea_GameLog" editable="false" prefHeight="200.0" prefWidth="200.0" text="Game Start!" wrapText="true" GridPane.rowIndex="25" />
+      </VBox>
    </children>
 </GridPane>
