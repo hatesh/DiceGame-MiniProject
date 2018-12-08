@@ -1,10 +1,13 @@
 package game.gui;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,6 +28,7 @@ public class GameController {
 
     @FXML private Label lbl_WhoseTurn;
     @FXML private Label lbl_TextOutput;
+    @FXML private TextArea txtarea_GameLog;
 
     @FXML private Button btn_rollDice;
 
@@ -57,6 +61,7 @@ public class GameController {
         temp += SceneNavigator.game.getRollScore();
         temp += " points!";
         lbl_TextOutput.setText(temp);
+        txtarea_GameLog.setText(txtarea_GameLog.getText() + "\n" + temp);
     }
 
     @FXML void updateTurn() {

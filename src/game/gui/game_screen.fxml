@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -22,6 +23,7 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
@@ -98,5 +100,6 @@
             <Label fx:id="lbl_Dice3" layoutX="128.0" layoutY="10.0" prefHeight="98.0" prefWidth="118.0" text="0" textAlignment="CENTER" />
          </children></HBox>
       <Label fx:id="lbl_TextOutput" prefHeight="21.0" prefWidth="453.0" GridPane.rowIndex="24" />
+      <TextArea fx:id="txtarea_GameLog" editable="false" prefHeight="200.0" prefWidth="200.0" text="Game Start!" wrapText="true" GridPane.rowIndex="25" />
    </children>
 </GridPane>
