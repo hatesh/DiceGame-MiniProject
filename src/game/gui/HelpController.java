@@ -8,14 +8,17 @@ import java.io.IOException;
 
 public class HelpController {
 
-    @FXML private TextArea txtarea_Description;
+    @FXML
+    private TextArea txtarea_Description;
 
-    @FXML void loadMenu(ActionEvent event) throws IOException {
+    @FXML
+    void loadMenu(ActionEvent event) throws IOException {
         System.out.println("Load Main Menu");
         SceneNavigator.loadScene(SceneNavigator.menuFX);
     }
 
-    @FXML String generateHelpTest() {
+    @FXML
+    String generateHelpTest() {
         String s = "Welcome to the Dice Game!";
         s += append("In this game we have two players, each can set their own name.");
         s += append("Next a maximum score needs to be decided so a winner can be found (30 is the default).");
@@ -32,9 +35,12 @@ public class HelpController {
         return s;
     }
 
-    @FXML void initialize() {
+    @FXML
+    void initialize() {
         txtarea_Description.setText(generateHelpTest());
     }
 
-    public String append(String s) { return s + "\n"; }
+    public String append(String s) {
+        return s + "\n";
+    }
 }
