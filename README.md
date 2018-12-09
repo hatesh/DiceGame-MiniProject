@@ -6,7 +6,7 @@
 
 ### Welcome Message
 
-- [ ] The game begins with an appropriate well-designed welcome message.
+- [x] The game begins with an appropriate well-designed welcome message.
 
 ### Dice Roll
 
@@ -42,10 +42,10 @@ Your program design should include at least the following classes:
 
 ### Advanced Graphical User Interface
 
-- [ ] Your application should display the state of each player (the scores and highlights if they are heading) every time the dice is rolled.
-- [ ] Your application should have the proper user instruction to explain the game and its rules; such as a short clip or animation
+- [x] Your application should display the state of each player (the scores and highlights if they are heading) every time the dice is rolled.
+- [x] Your application should have the proper user instruction to explain the game and its rules; such as a short clip or animation
 - [x] Your application needs to have at least 3 different layout managers.
-- [ ] You are encouraged to propose and implement new features different from the above listed items including extra visual features, animation. You can gather ideas by looking at similar applications. You are expected to consider the usability principles and produce an application that takes good care of them.
+- [x] You are encouraged to propose and implement new features different from the above listed items including extra visual features, animation. You can gather ideas by looking at similar applications. You are expected to consider the usability principles and produce an application that takes good care of them.
 - [x] Your source code should be well organised and documented. 
 
 ## Part 4 (20 Marks)
