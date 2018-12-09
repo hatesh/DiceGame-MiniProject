@@ -29,6 +29,12 @@ public class MainController {
         SceneNavigator.loadScene(SceneNavigator.helpFX);
     }
 
+    @FXML
+    void exit(ActionEvent event) throws IOException {
+        System.out.println("Quitting");
+        System.exit(0);
+    }
+
     public void setScene(Node node) {
         rootPane.getChildren().setAll(node);
     }
