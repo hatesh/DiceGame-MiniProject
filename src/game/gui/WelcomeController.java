@@ -62,6 +62,7 @@ public class WelcomeController {
                 if (!newValue.matches("\\d*")) txt_MaxScore.setText(newValue.replaceAll("\\D", ""));
             }
         });
+        lbl_Info.setText(lbl_Info.getText() + "\nMake sure you check the rules and mechanics on the Help page.");
     }
 
 }
