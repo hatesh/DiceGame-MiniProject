@@ -1,34 +1,41 @@
 package game.gui;
 
 import game.domain.Player;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.util.List;
 
 public class WinController {
 
-    @FXML private Label lbl_WinMessage;
+    @FXML
+    private Label lbl_WinMessage;
 
-    @FXML void loadMenu(ActionEvent event) throws IOException {
+    @FXML
+    void loadMenu(ActionEvent event) throws IOException {
         System.out.println("Load Main Menu");
         SceneNavigator.loadScene(SceneNavigator.menuFX);
     }
-    @FXML void newPlayers(ActionEvent event) throws IOException {
+
+    @FXML
+    void newPlayers(ActionEvent event) throws IOException {
         System.out.println("Load Welcome Screen");
         SceneNavigator.game.reset();
         SceneNavigator.game.clearPlayerList();
         SceneNavigator.loadScene(SceneNavigator.welcomeFX);
     }
-    @FXML void rematch(ActionEvent event) throws IOException {
+
+    @FXML
+    void rematch(ActionEvent event) throws IOException {
         System.out.println("Loading Rematch");
         SceneNavigator.game.reset();
         SceneNavigator.loadScene(SceneNavigator.gameFX);
     }
 
-    @FXML void setWinMessage() {
+    @FXML
+    void setWinMessage() {
         String temp = "Congratulations on ";
         List<Player> winners = SceneNavigator.game.getThisGameWinners();
         if (winners.size() > 1) {
@@ -43,7 +50,8 @@ public class WinController {
         lbl_WinMessage.setText(temp);
     }
 
-    @FXML public void initialize() {
+    @FXML
+    public void initialize() {
         this.setWinMessage();
     }
 

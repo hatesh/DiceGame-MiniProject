@@ -2,8 +2,9 @@ package game.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Hatesh's Dice Game");
         primaryStage.setScene(createScene(loadMainScene()));
+        primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(game.graphics.DiceImage.class.getResourceAsStream("5.jpeg")));
         primaryStage.show();
     }
 

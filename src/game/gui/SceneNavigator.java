@@ -1,8 +1,8 @@
 package game.gui;
 
 import game.domain.Game;
-
 import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
 
 public class SceneNavigator {
