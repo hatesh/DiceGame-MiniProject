@@ -52,6 +52,6 @@ Your program design should include at least the following classes:
 
 ### Write Up
 
-- [ ] A document discussing the importance of usability principles in designing software user interfaces and how these principles were approached in the development of your software application. Therefore, choose and discuss any three design principles from the following link that apply to your application.
+- [x] A document discussing the importance of usability principles in designing software user interfaces and how these principles were approached in the development of your software application. Therefore, choose and discuss any three design principles from the following link that apply to your application.
 
 https://tfa.stanford.edu/download/TenUsabilityHeuristics.pdf
