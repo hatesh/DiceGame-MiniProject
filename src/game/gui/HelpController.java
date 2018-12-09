@@ -18,8 +18,14 @@ public class HelpController {
     }
 
     @FXML
+    void loadWelcome(ActionEvent event) throws IOException {
+        System.out.println("Load Welcome Page");
+        SceneNavigator.loadScene(SceneNavigator.welcomeFX);
+    }
+
+    @FXML
     String generateHelpTest() {
-        String s = "Welcome to the Dice Game!";
+        String s = append("Welcome to the Dice Game!");
         s += append("In this game we have two players, each can set their own name.");
         s += append("Next a maximum score needs to be decided so a winner can be found (30 is the default).");
         s += append("After the game has been setup we can begin to play!");
