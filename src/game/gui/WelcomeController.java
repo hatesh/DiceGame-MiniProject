@@ -4,7 +4,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -16,6 +18,8 @@ public class WelcomeController {
     private TextField txt_Player2Name;
     @FXML
     private TextField txt_MaxScore;
+    @FXML
+    private Label lbl_Info;
 
     @FXML
     void loadMenu(ActionEvent event) throws IOException {
@@ -40,9 +44,15 @@ public class WelcomeController {
         System.out.println("Max Score: " + txt_MaxScore.getText());
         SceneNavigator.game.newPlayer(player1Name, 1);
         SceneNavigator.game.newPlayer(player2Name, 2);
-        SceneNavigator.game.setMaxScore(Integer.parseInt(txt_MaxScore.getText()));
-        System.out.println("Load Game");
-        SceneNavigator.loadScene(SceneNavigator.gameFX);
+        try {
+            SceneNavigator.game.setMaxScore(Integer.parseInt(txt_MaxScore.getText()));
+            System.out.println("Load Game");
+            SceneNavigator.loadScene(SceneNavigator.gameFX);
+        } catch (NumberFormatException e) {
+            lbl_Info.setText("Make sure that the Max Score is filled in!");
+            lbl_Info.setTextFill(Color.RED);
+        }
+
     }
 
     public void initialize() {
