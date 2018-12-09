@@ -20,6 +20,11 @@ public class WelcomeController {
         SceneNavigator.loadScene(SceneNavigator.menuFX);
     }
 
+    @FXML void loadHelp(ActionEvent event) throws IOException {
+        System.out.println("Load Help Page");
+        SceneNavigator.loadScene(SceneNavigator.helpFX);
+    }
+
     @FXML void loadGame(ActionEvent event) throws IOException {
         String player1Name = "Player 1";
         String player2Name = "Player 2";

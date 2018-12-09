@@ -5,9 +5,6 @@ public class Player {
     private int number;
     private int score;
     public Player() {
-//        this.setName("New Player");
-//        this.setNumber(0);
-//        this.setScore(0);
         this("New Player", 0);
     }
     public Player(String name, int number) {

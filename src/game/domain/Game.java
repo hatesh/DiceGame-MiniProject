@@ -55,9 +55,7 @@ public class Game {
         String result = "";
         winners = this.getWinners(this.getPlayerList());
         if (winners.size() > 1) {
-            for (Player winner : winners) {
-                result += winner.getName() + " and ";
-            }
+            for (Player winner : winners) result += winner.getName() + " and ";
             result = result.substring(0, result.length() - 3);
             result += "drew.";
         } else if (winners.size() == 1) {
@@ -82,8 +80,6 @@ public class Game {
             rollValues.add(dice.getValue());
         }
         int score = this.scoreRoll(rollValues);
-//        System.out.println(rollValues);
-//        System.out.println(score);
         return rollValues;
     }
     public Player getTurnPlayer(int turn) {
@@ -151,12 +147,8 @@ public class Game {
     }
     public void clearPlayerList() { this.playerList.clear(); }
     // Number of Players
-    public void setNumberOfPlayers(int nop) {
-        this.numberOfPlayers = nop;
-    }
-    public int getNumberOfPlayers() {
-        return this.numberOfPlayers;
-    }
+    public void setNumberOfPlayers(int nop) { this.numberOfPlayers = nop; }
+    public int getNumberOfPlayers() { return this.numberOfPlayers; }
 
     /* Dice Functions */
     // Dice List

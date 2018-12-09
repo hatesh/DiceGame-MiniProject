@@ -21,7 +21,7 @@ public class MainController {
     @FXML void loadHelp(ActionEvent event) throws IOException {
         System.out.println("Load Help Page");
         SceneNavigator.loadScene(SceneNavigator.helpFX);
-}
+    }
 
     public void setScene(Node node) {
         rootPane.getChildren().setAll(node);
